@@ -1,0 +1,59 @@
+body {
+    background: url(imgs/clover-bg.jpg);
+    background-size: cover;
+    color: #010e06
+}
+
+.btn {
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+#gameArea,
+#extras,
+#difficultySelection {
+    background-color: #dbffe2;
+    border-radius: 20px;
+    padding: 2em
+}
+
+#difficultyBox {
+    border-radius: 10px;
+}
+
+h1 {
+    font-family: "goodlife-brush", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white
+}
+
+/* Difficulties */
+.easy,
+.medium,
+.hard {
+    font-family: "ofelia-text", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.easy,
+.btn-success {
+    background-color: #b2ff69;
+    color: #1e3b04;
+    border: #1e3b04 dotted 4px;
+}
+
+.medium,
+.btn-warning {
+    background-color: #ffe469;
+    color: #635414;
+    border: #635414 dotted 4px;
+}
+
+.hard,
+.btn-danger {
+    background-color: #e70d0d;
+    color: #ffadad;
+    border: #ffadad dotted 4px;
+}
