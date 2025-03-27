@@ -107,7 +107,7 @@ function wrongGuess(guessedLetter) {
     //add guessed letter to wrong  HTML div
     document.getElementById('wrongLetters').textContent += `${guessedLetter}`
 
-    document.getElementById('shamrock').arc = `img/shamrock${6 - wrongGuesses}.jpg`
+    document.getElementById('shamrock').arc = `img/shamrock${6 - wrongGuesses}.png`
 
     const maxMistakes = 6
     //change back to see ig % of wrong guesses is - max mistakes
