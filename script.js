@@ -90,7 +90,7 @@ function guessLetter() {
         guessedLetters.push(guessedLetter)
     }
 
-    if (selectedWord.includes(guessedLetters)) {
+    if (selectedWord.includes(guessedLetter)) {
         correctGuess(guessedLetter)
     } else {
         wrongGuess(guessedLetter)
@@ -107,7 +107,7 @@ function wrongGuess(guessedLetter) {
     //add guessed letter to wrong  HTML div
     document.getElementById('wrongLetters').textContent += `${guessedLetter}`
 
-    document.getElementById('shamrock').arc = `img/shamrock${6 - wrongGuesses}.png`
+    document.getElementById('shamrock').src = `imgs/shamrock${6 - wrongGuesses}.png`
 
     const maxMistakes = 6
     //change back to see ig % of wrong guesses is - max mistakes
@@ -138,8 +138,8 @@ function correctGuess(guessedLetter) {
 function endGame(won) {
     if (won === true) {
         setTimeout(() => alert("yay u won"), 100)
-    } else {
-
+    } else if (won === false) {
+        setTimeout(() => alert("try again ya bum"), 100)
     }
 }
 
