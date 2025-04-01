@@ -105,9 +105,12 @@ function wrongGuess(guessedLetter) {
     //increment # of wrong guesses
     wrongGuesses++
     //add guessed letter to wrong  HTML div
-    document.getElementById('wrongLetters').textContent += `${guessedLetter}`
+    document.getElementById('wrongLetters').textContent += `${guessedLetter} `
 
     document.getElementById('shamrock').src = `imgs/shamrock${6 - wrongGuesses}.png`
+
+    const wrong = new Audio('WRONG.mp3');
+    wrong.play();
 
     const maxMistakes = 6
     //change back to see ig % of wrong guesses is - max mistakes
@@ -129,6 +132,9 @@ function correctGuess(guessedLetter) {
     displayedWord = newDisplayedWord
 
     document.getElementById('wordDisplay').textContent = displayedWord.split('').join(' ')
+
+    const correct = new Audio('yay.mp3');
+    correct.play();
 
     if (!displayedWord.includes('_')) {
         endGame(true)
