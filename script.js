@@ -101,6 +101,42 @@ function guessLetter() {
     inputField.focus() //refocus input field for next guess
 }
 
+
+document.getElementById('letterInput').addEventListener("keydown", (event) => {
+    let guessedLetter = document.getElementById('letterInput').value.toLowerCase() //convert input to lowercase
+
+    if (event.key === "Enter") {
+        //check if input is a valid letter (a-z)
+        if (!guessedLetter.match(/^[a-z]$/)) {
+            alert(`Please enter a valid letter between A-Z!`)
+            document.getElementById('letterInput').value = '' //clear input field
+            document.getElementById('letterInput').innerText = '' //clear input field
+            return //exit
+        }
+
+        //check if letter was already guessed using .include()
+        if (guessedLetters.includes(guessedLetter)) {
+            alert(`You've already guessed this letter!`)
+            document.getElementById('letterInput').value = '' //clear input field
+            document.getElementById('letterInput').innerText = '' //clear input field
+            return //exit
+        } else {
+            //store guessed letter in guessedLetters array
+            guessedLetters.push(guessedLetter)
+        }
+
+        if (selectedWord.includes(guessedLetter)) {
+            correctGuess(guessedLetter)
+        } else {
+            wrongGuess(guessedLetter)
+        }
+
+        document.getElementById('letterInput').value = '' //clear input field
+        document.getElementById('letterInput').innerText = '' //clear input field
+        document.getElementById('letterInput').focus() //refocus input field for next guess
+    }
+})
+
 function wrongGuess(guessedLetter) {
     //increment # of wrong guesses
     wrongGuesses++
