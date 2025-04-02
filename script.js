@@ -140,6 +140,7 @@ document.getElementById('letterInput').addEventListener("keydown", (event) => {
 function wrongGuess(guessedLetter) {
     //increment # of wrong guesses
     wrongGuesses++
+
     //add guessed letter to wrong  HTML div
     document.getElementById('wrongLetters').textContent += `${guessedLetter} `
 
@@ -178,10 +179,17 @@ function correctGuess(guessedLetter) {
 }
 
 function endGame(won) {
+    let endBox = document.getElementById('end')
+    endBox.classList.remove('win', 'lost')
+
     if (won === true) {
-        setTimeout(() => alert("yay u won"), 100)
+        document.getElementById('end').classList.remove('d-none')
+        endBox.textContent = `yay`
+        endBox.classList.add(win)
     } else if (won === false) {
-        setTimeout(() => alert("try again ya bum"), 100)
+        document.getElementById('end').classList.remove('d-none')
+        endBox.textContent = `womp womp`
+        endBox.classList.add(lost)
     }
 }
 
@@ -197,4 +205,7 @@ function restartGame() {
     document.getElementById('difficultyBox').classList.remove('d-block')
     document.getElementById('gameArea').classList.remove('d-block')
     document.getElementById('gameArea2').classList.remove('d-block')
+    document.getElementById('wrongLetters').textContent = `Wrong Guesses: `
+    document.getElementById('shamrock').src = 'imgs/shamrock6.png'
+    guessedLetters = ['']
 }
