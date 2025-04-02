@@ -186,5 +186,15 @@ function endGame(won) {
 }
 
 function restartGame() {
-    location.reload()
+    //Hide Difficulty Selection and Show Game Area & Difficulty Box
+    //Add d-none to difficultySelection div
+    document.getElementById('difficultySelection').classList.remove('d-none')
+    //Remove d-none from difficultyBox & gameArea
+    document.getElementById('difficultyBox').classList.add('d-none')
+    document.getElementById('gameArea').classList.add('d-none')
+    document.getElementById('gameArea2').classList.add('d-none')
+    //Add d-block to difficultyBox & gameArea
+    document.getElementById('difficultyBox').classList.remove('d-block')
+    document.getElementById('gameArea').classList.remove('d-block')
+    document.getElementById('gameArea2').classList.remove('d-block')
 }
