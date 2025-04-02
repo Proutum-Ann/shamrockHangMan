@@ -151,7 +151,7 @@ function wrongGuess(guessedLetter) {
 
     const maxMistakes = 6
     //change back to see ig % of wrong guesses is - max mistakes
-    if (wrongGuess === maxMistakes) {
+    if (wrongGuesses === maxMistakes) {
         endGame(false)
     }
 }
@@ -179,17 +179,18 @@ function correctGuess(guessedLetter) {
 }
 
 function endGame(won) {
-    let endBox = document.getElementById('end')
-    endBox.classList.remove('win', 'lost')
+    document.getElementById('end').classList.remove('win', 'lost')
+    document.getElementById('letterInput').disabled = true
+
 
     if (won === true) {
         document.getElementById('end').classList.remove('d-none')
-        endBox.textContent = `yay`
-        endBox.classList.add(win)
+        document.getElementById('end').textContent = `yay`
+        document.getElementById('end').classList.add(win)
     } else if (won === false) {
         document.getElementById('end').classList.remove('d-none')
-        endBox.textContent = `womp womp`
-        endBox.classList.add(lost)
+        document.getElementById('end').textContent = `womp womp`
+        document.getElementById('end').classList.add(lost)
     }
 }
 
@@ -205,7 +206,18 @@ function restartGame() {
     document.getElementById('difficultyBox').classList.remove('d-block')
     document.getElementById('gameArea').classList.remove('d-block')
     document.getElementById('gameArea2').classList.remove('d-block')
+    document.getElementById('guessing').classList.remove('d-none')
+
+    document.getElementById('end').classList.remove('win', 'lost')
+    document.getElementById('end').classList.add('d-none')
+    document.getElementById('letterInput').disabled = false
+
     document.getElementById('wrongLetters').textContent = `Wrong Guesses: `
     document.getElementById('shamrock').src = 'imgs/shamrock6.png'
+
+    document.getElementById('letterInput').value = ''
+    document.getElementById('letterInput').innerText = ''
+
+    wrongGuesses = 0
     guessedLetters = ['']
 }
