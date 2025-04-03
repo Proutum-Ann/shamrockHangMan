@@ -21,8 +21,10 @@ let displayedWord = ''
 let wrongGuesses = 0
 let guessedLetters = []
 const maxMistakes = 6
+let pointAmount = 0
 
 function startGame(level) {
+    
     selectedWord = getRandomWord(level)
 
     //Update Difficulty Display Div
@@ -175,6 +177,7 @@ function correctGuess(guessedLetter) {
 
     if (!displayedWord.includes('_')) {
         endGame(true)
+        pointCount(true)
     }
 }
 
@@ -182,16 +185,26 @@ function endGame(won) {
     document.getElementById('end').classList.remove('win', 'lost')
     document.getElementById('letterInput').disabled = true
 
-
     if (won === true) {
         document.getElementById('end').classList.remove('d-none')
         document.getElementById('end').textContent = `yay`
-        document.getElementById('end').classList.add(win)
+        document.getElementById('end').classList.add('win')
     } else if (won === false) {
         document.getElementById('end').classList.remove('d-none')
         document.getElementById('end').textContent = `womp womp`
-        document.getElementById('end').classList.add(lost)
+        document.getElementById('end').classList.add('lost')
     }
+
+}
+
+function pointCount(won){
+    if (won === true) {
+        pointAmount++
+        return document.getElementById('points').innerHTML = `<p>So far you have won <b>${pointAmount}</b> times!</p>`
+    } else {
+        return document.getElementById('points').innerHTML = `<p>So far you have won <b>${pointAmount}</b> times!</p>`
+    }
+
 }
 
 function restartGame() {
