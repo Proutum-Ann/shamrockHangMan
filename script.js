@@ -190,11 +190,11 @@ function endGame(won) {
 
     if (won === true) {
         document.getElementById('end').classList.remove('d-none')
-        document.getElementById('end').textContent = `yay`
+        document.getElementById('end').textContent = `Congratulations, you guessed the word correctly!`
         document.getElementById('end').classList.add('win')
     } else if (won === false) {
         document.getElementById('end').classList.remove('d-none')
-        document.getElementById('end').textContent = `womp womp`
+        document.getElementById('end').innerHTML = `Try again next time, the word was <b>${selectedWord}</b>!`
         document.getElementById('end').classList.add('lost')
     }
 
@@ -211,8 +211,8 @@ function pointCount(won){
 }
 
 function removeWord(){
-    guessedWords.push(displayedWord)
-    wordList.splice(displayedWord)
+    guessedWords.push(selectedWord)
+    wordList.with([selectedWord], '')
     document.getElementById('grave').textContent = `${guessedWords}`
 }
 

@@ -12,7 +12,8 @@ body {
 #gameArea,
 #gameArea2,
 #extras,
-#difficultySelection {
+#difficultySelection,
+.moreextra {
     background-color: #dbffe2;
     border-radius: 20px;
     padding: 2em
@@ -39,7 +40,8 @@ h1 {
 }
 
 .easy,
-.btn-success {
+.btn-success,
+.win {
     background-color: #b2ff69;
     color: #1e3b04;
     border: #1e3b04 dotted 4px;
@@ -53,8 +55,14 @@ h1 {
 }
 
 .hard,
-.btn-danger {
+.btn-danger,
+.lost {
     background-color: #e70d0d;
     color: #ffadad;
     border: #ffadad dotted 4px;
+}
+
+.win, .lost {
+    border-radius: 20px;
+    padding: 1%
 }
