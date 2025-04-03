@@ -15,6 +15,8 @@ const wordList = [
     'pot'
 ]
 
+const guessedWords = []
+
 //setting Game Variables
 let selectedWord = ''
 let displayedWord = ''
@@ -178,6 +180,7 @@ function correctGuess(guessedLetter) {
     if (!displayedWord.includes('_')) {
         endGame(true)
         pointCount(true)
+        removeWord()
     }
 }
 
@@ -205,6 +208,12 @@ function pointCount(won){
         return document.getElementById('points').innerHTML = `<p>So far you have won <b>${pointAmount}</b> times!</p>`
     }
 
+}
+
+function removeWord(){
+    guessedWords.push(displayedWord)
+    wordList.splice(displayedWord)
+    document.getElementById('grave').textContent = `${guessedWords}`
 }
 
 function restartGame() {
